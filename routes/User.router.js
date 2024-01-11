@@ -5,12 +5,13 @@ router = express.Router(),
     logIn,
     getUsers,
     updateUser,
-    deleteUser
+    deleteUser,
+    login
 } = require('../controllers/User.controller')
 const auth = require('../middlewares/auth')
 
 router.post('/signup', signUp)
-router.post('/login', logIn)
+router.post('/login', login)
 router.get('/', auth, getUsers)
 router.put('/', auth, updateUser)
 router.delete('/', auth, deleteUser)

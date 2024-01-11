@@ -15,7 +15,12 @@ const corsOptions = {
 app.use(cors(corsOptions ))
 app.use(express.json())
 
-mongoose.connect(process.env.MONGO_URI)
+
+mongoose.connect(
+    process.env.MONGO_URI
+  )
+  .then(()=>console.log('connected'))
+  .catch(e=>console.log(e));
 
 app.use('/v1', routes)
 
